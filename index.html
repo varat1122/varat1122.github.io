@@ -8,11 +8,12 @@
 <meta http-equiv="Expires" content="0">
 <title>Fair DR Calculator</title>
 <meta name="description" content="คำนวณ Indicative Fair Value ของ DR และค้นหารายชื่อ DR ตาม Thematic">
-<link rel="stylesheet" href="style-v5.css?v=10">
+<script>document.documentElement.dataset.theme=localStorage.getItem('fdr-theme')||'dark';</script>
+<link rel="stylesheet" href="style-v11.css?v=11">
 </head>
 <body>
 <div class="w">
-<header class="top"><div><h1>Fair DR Calculator</h1><p>Fair DR = ราคาหุ้นแม่ × FX เป็นบาท × จำนวนหุ้นแม่ต่อ 1 DR</p></div><div id="status" class="badge">กำลังโหลดฐานข้อมูล…</div></header>
+<header class="top"><div><h1>Fair DR Calculator</h1><p>Fair DR = ราคาหุ้นแม่ × FX เป็นบาท × จำนวนหุ้นแม่ต่อ 1 DR</p></div><div class="top-actions"><div id="status" class="badge">กำลังโหลดฐานข้อมูล…</div><button id="themeToggle" class="btn theme-toggle" type="button" aria-label="สลับ Light และ Dark Mode"><span class="theme-icon">☀️</span><span class="theme-label">Light Mode</span></button></div></header>
 <section class="grid">
 <div class="card"><h2>ฐานข้อมูล DR</h2><div id="dbinfo" class="muted">กำลังโหลด DR_160726_enriched.xlsx</div><div class="row" style="margin-top:9px"><label class="btn pri">อัปโหลด Excel เวอร์ชันใหม่<input id="file" class="file" type="file" accept=".xlsx"></label><button id="resetDb" class="btn">ใช้ฐานข้อมูลเริ่มต้น</button></div></div>
 <div class="card"><h2>FX → THB</h2><div id="fxinfo" class="muted">ดึง Reference Rate ล่าสุด หรือแก้ตัวเลขด้วยมือ</div><div class="row" style="margin-top:9px"><button id="getfx" class="btn pri" disabled>ดึง FX ล่าสุด</button></div><div id="fxgrid" class="fx"></div></div>
@@ -37,5 +38,6 @@
 <script src="dr_u3.js?v=4"></script>
 <script src="dr_rows.js?v=4"></script>
 <script src="app-v10.js?v=10"></script>
+<script src="theme-v11.js?v=11"></script>
 </body>
 </html>
