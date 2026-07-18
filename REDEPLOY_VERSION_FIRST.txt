@@ -1,0 +1,2 @@
+Fair DR Calculator restored to the original three-tab version shown in the reference screenshot.
+Redeploy requested: 2026-07-18
