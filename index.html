@@ -5,8 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fair DR Calculator</title>
 <meta name="description" content="คำนวณ Indicative Fair Value ของ DR และค้นหารายชื่อ DR ตาม Thematic">
-<link rel="stylesheet" href="style-v5.css?v=5">
+<link rel="stylesheet" href="style-v5.css?v=7">
 </head>
 <body>
 <div class="w">
-<header class="top"><div><h1>Fair DR Calculator</h1><p>Fair DR = ราคาหุ้นแม่ × FX เป็นบาท × จำนวนหุ้น
+<header class="top"><div><h1>Fair DR Calculator</h1><p>Fair DR = ราคาหุ้นแม่ × FX เป็นบาท × จำนวนหุ้นแม่ต่อ 1 DR</p></div><div id="status" class="badge">กำลังโหลดฐานข้อมูล…</div></header>
+<section class="grid">
+<div class="card"><h2>ฐานข้อมูล DR</h2><div id="dbinfo" class="muted">กำลังโหลด DR_160726_enriched.xlsx</div><div class="row" style="margin-top:9px"><label class="btn pri">อัปโหลด Excel เวอร์ชันใหม่<input id="file" class="file" type="file" accept=".xlsx"></label><button id="resetDb" class="btn">ใช้ฐานข้อมูลเริ่มต้น</button></div></div>
+<div class="card"><h2>FX → THB</h2><div id="fxinfo" class="muted">ดึง Reference Rate ล่าสุด หรือแก้ตัวเลขด้วยมือ</div><div class="row" style="margin-top:9px"><button id="getfx" class="btn pri" disabled>ดึง FX ล่าสุด</button></div><div id="fxgrid" class="fx"></div></div>
+</section>
+<div id="msg" class="msg"></div>
+<section class="metrics"><div class="metric"><span>จำนวน DR</span><b id="mDr">—</b></div><div class="metric"><span>หุ้นแม่</span><b id="mU">—</b></div><div class="metric"><span>ใส่ราคาแล้ว</span><b id="mP">—</b></div><div class="metric"><span>Fair พร้อมใช้</span><b id="mF">—</b></div></section>
+<nav class="tabs"><button class="btn tab active" data-p="prices">ราคาหุ้นแม่</button><button class="btn tab" data-p="directory">รายชื่อ DR</button></nav>
+<section id="prices" class="panel active">
+<div class="toolbar one"><input id="psearch" class="input" list="underlyingList" placeholder="ค้นหาหุ้นแม่ เช่น NVDA" disabled><datalist id="underlyingList"></datalist></div>
+<div id="selectedBox" class="selected"><div class="selected-name"><b id="selectedSymbol">—</b><span id="selectedName">—</span></div><div class="field"><label>ราคาหุ้นแม่</label><input id="selectedPrice" class="input price" inputmode="decimal" autocomplete="off" placeholder="กรอกราคา"></div><div class="field"><label id="selectedFxLabel">FX → THB</label><input id="selectedFx" class="input price" inputmode="decimal" autocomplete="off" placeholder="FX"></div></div>
+<div class="table"><table><thead><tr><th>DR Symbol</th><th class="num">Fair DR</th><th class="num">ราคา DR ล่าสุด</th><th class="num">Premium / Discount</th><th class="num">Conversion</th><th class="num">FX</th><th>ตลาด</th><th>เงิน</th></tr></thead><tbody id="ptbody"><tr><td colspan="8" class="empty">พิมพ์ค้นหาหุ้นแม่เพื่อแสดง Fair DR</td></tr></tbody></table></div><div id="pfoot" class="foot"></div>
+</section>
+<section id="directory" class="panel">
+<div class="toolbar"><input id="dsearch" class="input" placeholder="ค้นหา DR หุ้นแม่ ชื่อบริษัท หรือ Theme" disabled><select id="themeFilter" disabled><option value="">ทุก Thematic</option></select></div>
+<div class="table"><table><thead><tr><th>DR Symbol</th><th>หุ้นแม่</th><th>ธุรกิจหลัก</th><th>Thematic Category</th><th>Sector</th><th>ประเทศ</th><th>ตลาด</th><th class="num">Conversion</th></tr></thead><tbody id="dtbody"><tr><td colspan="8" class="empty">กำลังโหลดรายชื่อ DR</td></tr></tbody></table></div><div id="dfoot" class="foot"></div>
+</section>
+<div class="note">Indicative Fair Value เท่านั้น ไม่รวม Bid–Ask, Hedging Cost, Dividend, Tax, Corporate Action และความต่างของเวลาซื้อขาย</div>
+</div>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script src="dr_u1.js?v=4"></script>
+<script src="dr_u2.js?v=4"></script>
+<script src="dr_u3.js?v=4"></script>
+<script src="dr_rows.js?v=4"></script>
+<script src="app-v5.js?v=7"></script>
+<script src="input-fix-v7.js?v=7"></script>
+</body>
+</html>
