@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <title>Fair DR Calculator</title>
 <meta name="description" content="คำนวณ Indicative Fair Value ของ DR และค้นหารายชื่อ DR ตาม Thematic">
-<link rel="stylesheet" href="style-v5.css?v=9">
+<link rel="stylesheet" href="style-v5.css?v=10">
 </head>
 <body>
 <div class="w">
@@ -18,7 +18,7 @@
 <div class="card"><h2>FX → THB</h2><div id="fxinfo" class="muted">ดึง Reference Rate ล่าสุด หรือแก้ตัวเลขด้วยมือ</div><div class="row" style="margin-top:9px"><button id="getfx" class="btn pri" disabled>ดึง FX ล่าสุด</button></div><div id="fxgrid" class="fx"></div></div>
 </section>
 <div id="msg" class="msg"></div>
-<section class="metrics" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="metric"><span>จำนวน DR</span><b id="mDr">—</b></div><div class="metric"><span>หุ้นแม่</span><b id="mU">—</b></div><div style="display:none"><b id="mP">—</b></div><div style="display:none"><b id="mF">—</b></div></section>
+<section class="metrics" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="metric"><span>จำนวน DR</span><b id="mDr">—</b></div><div class="metric"><span>หุ้นแม่</span><b id="mU">—</b></div></section>
 <nav class="tabs"><button class="btn tab active" data-p="prices">ราคาหุ้นแม่</button><button class="btn tab" data-p="directory">รายชื่อ DR</button></nav>
 <section id="prices" class="panel active">
 <div class="toolbar one"><input id="psearch" class="input" list="underlyingList" placeholder="ค้นหาหุ้นแม่ เช่น NVDA" disabled><datalist id="underlyingList"></datalist></div>
@@ -36,9 +36,6 @@
 <script src="dr_u2.js?v=4"></script>
 <script src="dr_u3.js?v=4"></script>
 <script src="dr_rows.js?v=4"></script>
-<script src="app-v5.js?v=9"></script>
-<script src="round-fair-v8.js?v=9"></script>
-<script src="input-fix-v7.js?v=9"></script>
-<script src="final-fix-v9.js?v=9"></script>
+<script src="app-v10.js?v=10"></script>
 </body>
 </html>
