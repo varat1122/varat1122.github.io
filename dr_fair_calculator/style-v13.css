@@ -1,0 +1,5 @@
+.toolbar.directory-tools{grid-template-columns:minmax(220px,1fr) 220px 160px}
+.ai-pill{display:inline-block;padding:3px 8px;border-radius:999px;border:1px solid var(--line);font-weight:800;white-space:nowrap}
+.ai-pill.ai{color:var(--g);background:color-mix(in srgb,var(--g) 10%,var(--pill))}
+.ai-pill.non-ai{color:var(--m);background:var(--pill)}
+@media(max-width:800px){.toolbar.directory-tools{grid-template-columns:1fr}}
